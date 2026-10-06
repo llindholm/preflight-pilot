@@ -1,72 +1,24 @@
 "use client";
-import Script from "next/script";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { applicationSchema } from "@/lib/application";
 import { track } from "@/lib/analytics";
-type Turnstile = {
-  render: (node: HTMLElement, options: Record<string, unknown>) => string;
-  reset: (id: string) => void;
-  remove: (id: string) => void;
-};
-declare global {
-  interface Window {
-    turnstile?: Turnstile;
-  }
-}
+import { isFormspreeEndpoint, sendApplication } from "@/lib/formspree";
 export default function PilotForm() {
   const [state, setState] = useState<"idle" | "sending" | "success">("idle");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string[] | undefined>>(
     {},
   );
-  const [token, setToken] = useState("");
-  const [scriptReady, setScriptReady] = useState(false);
-  const challenge = useRef<HTMLDivElement>(null);
-  const widget = useRef<string | null>(null);
-  const submissionId = useRef("");
-  const lastAnswers = useRef("");
+  const inFlight = useRef(false);
   const statusRef = useRef<HTMLDivElement>(null);
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-  useEffect(() => {
-    if (!scriptReady || !siteKey || !challenge.current || !window.turnstile)
-      return;
-    widget.current = window.turnstile.render(challenge.current, {
-      sitekey: siteKey,
-      action: "pilot-apply",
-      theme: "light",
-      size: "flexible",
-      callback: (value: string) => {
-        setToken(value);
-      },
-      "expired-callback": () => setToken(""),
-      "error-callback": () => {
-        setToken("");
-        setMessage(
-          "Verification could not load. Check your connection and reload this page.",
-        );
-      },
-    });
-    return () => {
-      if (widget.current) window.turnstile?.remove(widget.current);
-      widget.current = null;
-    };
-  }, [scriptReady, siteKey]);
+  const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "";
+  const configured = isFormspreeEndpoint(endpoint);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (state === "sending") return;
+    if (inFlight.current || !configured) return;
     const form = event.currentTarget;
     const values = Object.fromEntries(new FormData(form));
-    const answers = JSON.stringify(values);
-    if (!submissionId.current || answers !== lastAnswers.current) {
-      submissionId.current = crypto.randomUUID();
-      lastAnswers.current = answers;
-    }
-    const input = {
-      ...values,
-      consent: values.consent === "on",
-      turnstileToken: token,
-      submissionId: submissionId.current,
-    };
+    const input = { ...values, consent: values.consent === "on" };
     const parsed = applicationSchema.safeParse(input);
     if (!parsed.success) {
       const fields = parsed.error.flatten().fieldErrors;
@@ -78,19 +30,14 @@ export default function PilotForm() {
     }
     setErrors({});
     setMessage("");
+    inFlight.current = true;
     setState("sending");
     track("pilot_application_submit");
     try {
-      const response = await fetch("/api/apply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
-        signal: AbortSignal.timeout(25000),
-      });
-      const result = await response.json();
-      if (!response.ok) {
+      const result = await sendApplication(endpoint, parsed.data);
+      if (!result.ok) {
         setErrors(result.fields || {});
-        throw new Error(result.error || "Submission failed. Please try again.");
+        throw new Error(result.error);
       }
       setState("success");
       track("pilot_application_success");
@@ -102,9 +49,9 @@ export default function PilotForm() {
           ? error.message
           : "We could not confirm your submission. Please try again.",
       );
-      if (widget.current) window.turnstile?.reset(widget.current);
-      setToken("");
       track("pilot_application_error");
+    } finally {
+      inFlight.current = false;
     }
   }
   const hint = (name: string) =>
@@ -253,7 +200,7 @@ export default function PilotForm() {
       <div className="honeypot" aria-hidden="true">
         <label>
           Leave this empty
-          <input name="websiteConfirm" tabIndex={-1} autoComplete="off" />
+          <input name="_gotcha" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
       <label className="checkbox" htmlFor="consent">
@@ -262,28 +209,15 @@ export default function PilotForm() {
       </label>
       {hint("consent")}
       <p className="privacy-note">
-        Your application is sent by email to the pilot organizer using Resend.
-        Cloudflare Turnstile helps protect this form from spam. Please leave
-        customer names, confidential details and project documents out of this
-        application. We’ll agree on record sharing and handling before any
-        project is provided.
+        Your application is sent to the pilot organizer through Formspree.
+        Please leave customer names, confidential details and project documents
+        out of this application. We’ll agree on record sharing and handling
+        before any project is provided.
       </p>
-      {siteKey && (
-        <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-          onReady={() => setScriptReady(true)}
-          onError={() =>
-            setMessage(
-              "Verification could not load. Please reload the page and try again.",
-            )
-          }
-        />
-      )}
-      <div ref={challenge} />
-      {!siteKey && (
+      {!configured && (
         <p className="config-note">
-          Applications will open once the form is connected. You can still
-          explore the pilot below.
+          Applications will open once the form is connected. Please check back
+          soon.
         </p>
       )}
       <div role="alert">
@@ -292,7 +226,7 @@ export default function PilotForm() {
       <button
         className="button"
         type="submit"
-        disabled={state === "sending" || !siteKey || !token}
+        disabled={state === "sending" || !configured}
       >
         {state === "sending"
           ? "Submitting application…"
