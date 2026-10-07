@@ -102,7 +102,7 @@ export default function Home() {
           <span className="brand-mark" aria-hidden="true">
             P<span>✓</span>
           </span>
-          preflight<span className="working-label">WORKING NAME</span>
+          preflight<span className="working-label">GROUNDSTATE, INC.</span>
         </a>
         <nav aria-label="Main navigation">
           <a href="#approach">The check</a>
