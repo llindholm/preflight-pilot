@@ -5,20 +5,20 @@ const statuses = [
     name: "SUPPORTED",
     className: "supported",
     description:
-      "The production state is supported by the governing evidence supplied.",
+      "The production package is supported by the governing evidence supplied.",
   },
   {
     code: "02",
     name: "CONFLICT",
     className: "conflict",
-    description: "The production state disagrees with the governing evidence.",
+    description: "The production package disagrees with the governing evidence.",
   },
   {
     code: "03",
     name: "INSUFFICIENT EVIDENCE",
     className: "insufficient",
     description:
-      "The supplied record does not establish whether the production state is valid.",
+      "The supplied record does not establish whether the production package is valid.",
   },
   {
     code: "04",
@@ -126,12 +126,10 @@ export default function Home() {
               you <span>fabricate.</span>
             </h1>
             <p className="hero-description">
-              Before a package goes to production, can what you’re about to
-              build be traced back to what was actually approved?
+              We're developing a second check before fabrication: compare the production package with approved shop drawings, review comments and documented changes - and flag details that don't agree or still need an answer.
             </p>
             <p className="hero-secondary">
-              We’re developing an evidence-backed preflight check - and recruiting
-              a small number of shops to test it on completed projects.
+              We're inviting a small number of architectural millwork shops to test it on one completed job.
             </p>
             <a href="#apply" className="button">
               Apply for the Completed Project Review Pilot
@@ -204,9 +202,9 @@ export default function Home() {
               <div>
                 <p className="eyebrow">THE CHECK</p>
                 <h2>
-                  From project history
+                  What the check
                   <br />
-                  to a traceable finding.
+                  looks for.
                 </h2>
               </div>
               <p>
@@ -218,36 +216,7 @@ export default function Home() {
                 </strong>
               </p>
             </div>
-            <ol className="process-flow">
-              <li>
-                <span>01 / INPUT</span>
-                <h3>Project evidence</h3>
-                <p>
-                  Drawings, comments, revisions, measurements and
-                  correspondence.
-                </p>
-              </li>
-              <li>
-                <span>02 / RECONSTRUCT</span>
-                <h3>Governing approval</h3>
-                <p>
-                  Which approval applies to this detail, scope and point in the
-                  project?
-                </p>
-              </li>
-              <li>
-                <span>03 / COMPARE</span>
-                <h3>Production package</h3>
-                <p>The recorded state your shop was considering for release.</p>
-              </li>
-              <li>
-                <span>04 / REVIEW</span>
-                <h3>Preflight findings</h3>
-                <p>
-                  A finding, its evidence chain and any unresolved question.
-                </p>
-              </li>
-            </ol>
+            
             <div className="status-grid">
               {statuses.map((s) => (
                 <article key={s.code} className={`status-card ${s.className}`}>
@@ -288,7 +257,7 @@ export default function Home() {
               testing: a change can appear in a later drawing without becoming
               the approved requirement.
             </p>
-            <span className="example-label">SIMULATED CAPABILITY EXAMPLE</span>
+            
           </div>
           <article className="evidence-card">
             <div className="evidence-header">
@@ -357,15 +326,15 @@ export default function Home() {
               <div>
                 <p className="eyebrow">THE COMPLETED PROJECT REVIEW PILOT</p>
                 <h2>
-                  Give us an old project.
+                  See what a second review
                   <br />
-                  Tell us what we missed.
+                  finds on a completed job.
                 </h2>
               </div>
               <p>
-                We’ve been conducting controlled tests with simulated project examples. The next step is to see how the check handles a real,
-                completed job—and let the people who know that job judge the
-                results.
+                Choose a completed job your team knows well. We’ll compare its production package with the project records and share a private review showing possible conflicts, unanswered questions and the records behind each finding.
+
+                Then we’ll review it with you: what did the system get right, what did it get wrong, and would any finding have mattered before fabrication?
               </p>
             </div>
             <ol className="pilot-steps">
@@ -375,15 +344,15 @@ export default function Home() {
                   "Provide its document history and production/release package. Redact identifying or customer information where appropriate.",
                 ],
                 [
-                  "We run the experimental review",
+                  "We compare the package with the records",
                   "We work out was was approved - and what changed - and compare it with what the production package shows.",
                 ],
                 [
-                  "Receive a private evidence report",
+                  "Receive your private review",
                   "See what appears supported, potential conflicts, evidence gaps and human decisions, with the evidence behind each finding.",
                 ],
                 [
-                  "Review the results together",
+                  "Review the findings together",
                   "Tell us what was right, what was wrong and whether a finding would have mattered in your actual production review.",
                 ],
               ].map(([title, text], i) => (
@@ -447,7 +416,7 @@ export default function Home() {
                 "Recorded field measurements and coordination notes",
               ],
               [
-                "Production state",
+                "What the shop plans to build",
                 "The package considered for fabrication/release",
               ],
               [
@@ -503,18 +472,11 @@ export default function Home() {
               today. We’re looking for operators willing to share a completed project
               record and give candid feedback.
             </p>
-            <div className="application-summary">
-              <span>01 completed historical project</span>
-              <span>Private review with evidence</span>
-              <span>Your feedback shapes the experiment</span>
-            </div>
-            <p className="small">
-              Submitting an application is not a guarantee of participation.
-              We’ll discuss project fit with you first.
-            </p>
+            
+            
           </div>
           <div className="form-panel">
-            <h3>Apply for the Completed Project Review Pilot</h3>
+            <h3>Tell Us About Your Shop</h3>
             <PilotForm />
           </div>
         </section>
