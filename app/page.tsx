@@ -486,6 +486,7 @@ export default function Home() {
           preflight<span>Working identity / Millwork release verification</span>
         </a>
         <p>Know what’s approved before you fabricate.</p>
+        <a href="/resources/millwork-shop-drawing-review">Shop drawing review: a worked example</a>
         <a href="#apply">Pilot application</a>
       </footer>
     </>
