@@ -1,0 +1,252 @@
+{
+  "title": "Millwork Pre-Fabrication Review Checklist",
+  "subtitle": "Track drawing changes, supporting decisions, field information, and open questions.",
+  "scope": "Educational coordination aid. This is Groundstate’s suggested coordination checklist, not an official AWI document, compliance certification, or fabrication authorization. Use it alongside the project requirements and your shop’s established procedures.",
+  "before": "Identify the package, issue date, affected scope, reviewer, and review date. Gather the returned shop drawings, review comments, relevant change records, supplier information, field records, and applicable release procedure.",
+  "checkStates": [
+    "Reviewed with reference",
+    "Follow-up needed",
+    "Not applicable—with reason"
+  ],
+  "reviewedMeaning": "“Reviewed” means the comparison was made and recorded. It does not mean the item is approved or ready to fabricate.",
+  "sections": [
+    {
+      "title": "Current drawings and revisions",
+      "checks": [
+        "Can you identify the exact drawing and package revisions being reviewed?",
+        "Have you compared the current detail with the relevant returned drawings and documented changes, including changes not clearly marked?",
+        "Do the affected production details, schedules, cut sheets, and shop packets agree with each other?"
+      ],
+      "note": "Record the affected sheets and items. Do not assume the newest document establishes approval."
+    },
+    {
+      "title": "Architect comments and submittal responses",
+      "checks": [
+        "Which returned review applies to this item, and what does it cover?",
+        "Have applicable comments been incorporated or given a documented disposition?",
+        "Are changed details or substitutions supported by the required review, rather than merely appearing in a later drawing?"
+      ],
+      "note": "Record the response, date, scope, and source location.",
+      "sources": [
+        "S1"
+      ]
+    },
+    {
+      "title": "RFIs, ASIs, and other changes",
+      "checks": [
+        "Have you checked relevant RFI responses, Architect’s Supplemental Instructions, change orders, sketches, and correspondence for effects on this scope?",
+        "Can you trace each applicable instruction into the affected production information?",
+        "Where instructions conflict, or their status is unclear, is the question assigned for resolution through the project’s procedure?"
+      ],
+      "note": "Record what changed and where. A discussion, instruction, and approval may serve different purposes."
+    },
+    {
+      "title": "Supplier requirements and product cut sheets",
+      "checks": [
+        "Does the product information match the model, components, and configuration currently scheduled?",
+        "Have you checked the affected dimensions and interfaces against the applicable supplier requirements—for example, cutouts, clearances, access, or removal space?",
+        "Does any supplier decision cover this exact configuration, including its stated limits?"
+      ],
+      "note": "Record calculations and their inputs. Do not extend a configuration-specific acceptance to a changed detail without checking its scope."
+    },
+    {
+      "title": "Field measurements and site conditions",
+      "checks": [
+        "Are the relevant field records identifiable by location, date, units, and measurement reference?",
+        "Are finished dimensions distinguished from rough openings, substrates, carriers, and assumed finish buildups?",
+        "Are unverified dimensions, agreed hold dimensions, and unresolved site conditions identified for follow-up?"
+      ],
+      "note": "Identify who needs to verify or coordinate the condition under the project’s arrangements.",
+      "sources": [
+        "S2"
+      ]
+    },
+    {
+      "title": "Applicable production-release requirements",
+      "checks": [
+        "What review or release procedure applies to this item or portion of the package?",
+        "Are its required decisions, records, and authorizations present, with their scope and conditions understood?",
+        "Have remaining restrictions been communicated to the people preparing or receiving production information?"
+      ],
+      "note": "Use the project’s actual procedure. Do not assume every project requires a separate written PM release."
+    },
+    {
+      "title": "Conflicts, missing evidence, and follow-up",
+      "checks": [
+        "Have you recorded demonstrated conflicts separately from missing information and unresolved decisions?",
+        "Does each open issue identify the affected item, supporting records, responsible person, and next action?",
+        "When an issue is resolved, will the affected production information be updated and the resolution communicated?"
+      ],
+      "note": "A missing record does not prove that approval never occurred. An unresolved solution does not erase a demonstrated conflict."
+    }
+  ],
+  "finish": "List the checks completed and issues still open. Refer unresolved items to the appropriate person through the established project process.",
+  "completionWarning": "Completing this checklist does not establish engineering adequacy, field fit, standards compliance, or permission to fabricate.",
+  "methodQualification": "The detailed prompts—especially record comparisons, supplier-scope checks, and issue tracking—are our proposed review method. They are not represented as verbatim AWI requirements.",
+  "howTo": [
+    "Identify the package and scope you are reviewing.",
+    "Gather the relevant returned drawings, responses, changes, supplier information, and field records.",
+    "Work through the seven checks. Record references instead of relying on a tick alone.",
+    "Use an item-review sheet for each discrepancy or open question.",
+    "Route follow-up through the project’s established process, then record the resolution and affected document updates."
+  ],
+  "worksheet": {
+    "title": "Pre-Fabrication Item Review",
+    "subtitle": "Educational coordination record — not a fabrication release",
+    "identity": [
+      "Project",
+      "Area / package",
+      "Package issue / date",
+      "Reviewed by / role",
+      "Review date"
+    ],
+    "affected": [
+      "Item / location",
+      "Current drawing / detail / revision",
+      "What is being checked?"
+    ],
+    "evidenceColumns": [
+      "Record ID / revision / date",
+      "Page, detail, or section",
+      "Relevant requirement or decision"
+    ],
+    "calculation": "Comparison or calculation, including units and measurement basis",
+    "statuses": [
+      "No discrepancy identified in this specific comparison",
+      "Conflict demonstrated",
+      "Evidence missing or unclear",
+      "Decision or verification outstanding",
+      "Not applicable — reason"
+    ],
+    "finding": "Finding — what do the available records establish?",
+    "openQuestion": "Open question — what is not established?",
+    "followUp": [
+      "Responsible person / role",
+      "Next action",
+      "Needed by / relevant milestone",
+      "Applicable restriction or release requirement, with source",
+      "Resolution reference / date",
+      "Affected documents updated / recipients notified"
+    ],
+    "blankWarning": "Blank fields are not evidence of approval or completed review. These status labels describe the comparison only.",
+    "responsibilityWarning": "“Responsible person” means the person assigned to coordinate the next action; it does not transfer design, contractual, or release authority."
+  },
+  "example": {
+    "title": "Completed WC27 worksheet example",
+    "fictional": "Fictional training example. All project records, organizations, products, and people are invented. Suggested follow-up below is identified explicitly.",
+    "rows": [
+      [
+        "Project / location",
+        "Fictional North Annex, Level 2 east corridor; WC-27 cladding / SA-27 service-access cassette"
+      ],
+      [
+        "Current package",
+        "FP-27-11, Revision 0, September 11, 2026, 13:00"
+      ],
+      [
+        "Review basis",
+        "Six supplied records, R01–R06. No review event or reviewer identity is invented."
+      ],
+      [
+        "Affected item",
+        "SA-27 frame-mounting cutout and clear service passage"
+      ],
+      [
+        "Current detail",
+        "704 × 900 mm cutout; SJ-16 jambs consuming 16 mm each side; head and sill consuming 30 mm each. R06, p. 1, §2"
+      ],
+      [
+        "Supporting requirement",
+        "Minimum clear passage 680 × 820 mm, both dimensions required; consumptions include inward throat projections. R02, p. 1, §§1–2"
+      ],
+      [
+        "Earlier reviewed configuration",
+        "CL-207 Rev B: 720 × 900 mm cutout; approved for design intent, with service access and field installation still requiring coordination. R01, p. 1, §§1–2"
+      ],
+      [
+        "Supplier decision",
+        "TD-27-09 accepts SJ-16 jambs on the specified 720 × 900 mm cutout. Changed cutout dimensions require further technical review. R04, p. 1, §§1–2"
+      ],
+      [
+        "Calculation",
+        "Width: 704 − 16 − 16 = 672 mm, 8 mm below minimum. Height: 900 − 30 − 30 = 840 mm, 20 mm above minimum. R02 §§1–2; R06 §2"
+      ],
+      [
+        "Review status",
+        "Conflict demonstrated, plus decision/verification outstanding and release evidence not supplied"
+      ],
+      [
+        "Established finding",
+        "The scheduled current configuration does not meet the clear-width minimum. Referencing TD-27-09 does not establish supplier acceptance of the changed cutout."
+      ],
+      [
+        "Open question",
+        "What final configuration will satisfy the requirements and receive the applicable reviews? Revised architectural joint-layout review remains pending. R05 §1; R06 §3"
+      ],
+      [
+        "Separate field uncertainty",
+        "Survey: 1295 mm from carrier C0 to the opposite finished wall. Working-depth requirement: 1260 mm from finished cladding face. Projection P remains unresolved. Depth = 1295 − P; P ≤ 35 mm is a derived limit, not an approved projection or confirmed fit. The 738 × 920 mm carrier opening is a different opening. R02 §3; R03 §§1–3; R06 §3"
+      ],
+      [
+        "Responsible person",
+        "Suggested coordinator: project PM Noel Ash, with detailing and the applicable supplier/design reviewers. This worksheet does not invent a new assignment or recorded action."
+      ],
+      [
+        "Next action",
+        "Suggested: refer the width conflict for coordinated resolution; obtain applicable supplier and architectural reviews; establish P and verify working space; update affected production information. No corrective dimensions are prescribed."
+      ],
+      [
+        "Project-specific restriction",
+        "R05 permits flitch matching and reservation of uncut stock only. CNC cutting and cassette assembly remain on hold pending interface resolution and written PM release. R01 §3; R05 §2"
+      ],
+      [
+        "Milestone",
+        "Coordinated cutting basis and signed release required by September 11, 16:00 to retain the September 14, 09:00 CNC slot. R05 §3. No outcome after the September 11, 13:00 package is supplied."
+      ],
+      [
+        "Resolution / notification",
+        "Not established. R06 states the release is not attached and describes its issue as a detailing transmittal. No subsequent release or completed notification is supplied. R06 §3"
+      ]
+    ],
+    "note": "This single item review deliberately records different statuses for different questions. The width conflict is known; working depth, final design disposition, and release remain separate matters."
+  },
+  "guidance": [
+    {
+      "id": "S1",
+      "label": "AWI 100, §3.2 — Manufacturer / supplier responsibility",
+      "text": "Supports distinguishing displayed changes from requested approval, identifying applicable submittals, and checking returned review dispositions. The checklist is a selective suggested workflow, not a restatement of the standard.",
+      "links": [
+        {
+          "label": "Manufacturer/supplier responsibility",
+          "url": "https://awinet.org/standards/submittals/requirements-category/manufacturer-supplier-responsibility/"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "label": "AWI 100, §§3.3 and 3.4(g) — Field and design changes",
+      "text": "Addresses hold dimensions and communication of design/field changes, including responsibility dependent on contractual relationships.",
+      "links": [
+        {
+          "label": "General contractor responsibility",
+          "url": "https://awinet.org/standards/requirements-category/contractor-responsibility/"
+        },
+        {
+          "label": "Design professional responsibility",
+          "url": "https://awinet.org/standards/requirements-category/professional-responsibility/"
+        }
+      ]
+    },
+    {
+      "id": "Context",
+      "label": "Practitioner context — WOODWEB, 2010",
+      "text": "A discussion of measurement forms, cross-checking, and information retrieval informed usability choices. Its performance assertions are not adopted.",
+      "links": [
+        {
+          "label": "Mistake-Proofing Cabinet Jobs",
+          "url": "https://woodweb.com/knowledge_base/MistakeProofing_Cabinet_Jobs.html"
+        }
+      ]
+    }
+  ]
+}

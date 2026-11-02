@@ -257,6 +257,13 @@ export default function Home() {
               >
                 Explore the worked example <span aria-hidden="true">→</span>
               </a>
+              <p style={{ marginTop: 16, marginBottom: 0 }}>
+                Reviewing a package? Use the{" "}
+                <a href="/resources/millwork-pre-fabrication-review-checklist" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  free pre-fabrication review checklist
+                </a>
+                {" "}to record supporting references and open questions.
+              </p>
             </aside>
           </div>
         </section>
