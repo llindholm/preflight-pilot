@@ -241,6 +241,23 @@ export default function Home() {
               “Supported” describes the supplied record. It is not permission to
               fabricate.
             </p>
+            <aside
+              aria-labelledby="worked-example-heading"
+              style={{ maxWidth: 660, marginTop: 32, paddingTop: 24, borderTop: "1px solid var(--line)" }}
+            >
+              <h3 id="worked-example-heading">See how a drawing discrepancy can get missed</h3>
+              <p>
+                Walk through a fictional millwork project where a detail changes
+                before production—and see how comparing the supporting records
+                reveals an unresolved issue.
+              </p>
+              <a
+                href="/resources/millwork-shop-drawing-review"
+                style={{ textDecoration: "underline", textUnderlineOffset: 4, fontWeight: 600 }}
+              >
+                Explore the worked example <span aria-hidden="true">→</span>
+              </a>
+            </aside>
           </div>
         </section>
         <section className="section wrap example" id="example">
